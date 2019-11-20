@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+
+<div class="header">
+  <div class="section-title">
+    <h1>Issues</h1>
+  </div>
+  <div class="page-actions">
+      <%= link_to new_issue_path, class: 'create-button' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        <span class="createi-button">Create issue</span>
+      <% end %>
+  </div>
+</div>
+
+
+<div class="issues">
+
+  <div class="issues-toolbar">
+    <div class="filter-container">
+      <p class="filter-label">Filters:</p>
+      <ul class="filter-status">
+        <li id="all" class="aui-button">
+          <a href="/issues">All</a>
+        </li>
+      
+      </ul>
+    </div>
+  </div>
+
+  <h2>Issues (<%= @issues.size %>)</h2>
+
+  <p id="issues-filter-criteria">
+    <% if request.query_parameters[:type] %>
+      <b>type:</b> "<%= request.query_parameters[:type] %>"
+    <% end %>
+    <% if request.query_parameters[:priority] %>
+        <b>priority:</b> "<%= request.query_parameters[:priority] %>"
+    <% end %>
+    <% if request.query_parameters[:status] %>
+        <b>status:</b> "<%= request.query_parameters[:status] %>"
+    <% end %>
+    <% if request.query_parameters[:assignee_id] %>
+        <b>assignee:</b> "<%= User.find(request.query_parameters[:assignee_id]).name %>"
+    <% end %>
+  </p>
+
+  <table class="issue-list">
+    <thead>
+      <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Type</th>
+          <th scope="col">Priority</th>
+          <th scope="col">Status</th>
+          <th scope="col">Votes</th>
+          <th scope="col">Assignee</th>
+          <th scope="col">Created</th>
+          <th scope="col">Updated</th>
+          <th colspan="3"></th>
+        </tr>
+    </thead>
+    <tbody>
+      <tbody>
+        <% @issues.each do |issue| %>
+          <tr><!--@products = Product.status("active").starts_with("Ruby")-->
+            <td><%= link_to issue.Title , issue, class:"btn-link" %></td>
+            <td><%= link_to issue.Type , issues_url(type: issue.Type), class:"btn-link" %></td>
+            <td><%= link_to issue.Priority , issues_url(priority: issue.Priority), class:"btn-link" %></td>
+            <td><%= link_to issue.Status , issues_url(status: issue.Status), class:"btn-link" %></td>
+            <td><%= issue.Votes %></td>
+            <% if !issue.assignee_id.nil? %>
+            <td><%= link_to issue.assignee_id, issues_url(assignee_id: issue.assignee_id), class:"btn-link" %></td>
+            <% else %>
+            <td></td>
+            <% end %>
+            <td><%= time_ago_in_words(issue.created_at) + " ago" %></td>
+            <td><%= time_ago_in_words(issue.updated_at) + " ago" %></td>
+            <td>
+        <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+  </table>
+</div>

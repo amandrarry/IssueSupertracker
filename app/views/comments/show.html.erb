@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @comment.body %>
+</p>
+
+<p>
+  <strong>Issue:</strong>
+  <%= @comment.issue_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @comment.user_id %>
+</p>
+
+<p>
+  <strong>Attachment file name:</strong>
+  <%= @comment.attachment_file_name %>
+</p>
+
+<p>
+  <strong>Attachment content type:</strong>
+  <%= @comment.attachment_content_type %>
+</p>
+
+<p>
+  <strong>Attachment file size:</strong>
+  <%= @comment.attachment_file_size %>
+</p>
+
+<p>
+  <strong>Attachment update at:</strong>
+  <%= @comment.attachment_update_at %>
+</p>
+
+<%= link_to 'Edit', edit_comment_path(@comment) %> |
+<%= link_to 'Back', comments_path %>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @issue.Title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @issue.Description %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @issue.Type %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @issue.Priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @issue.Status %>
+</p>
+
+<p>
+  <strong>Assignee:</strong>
+  <%= @issue.assignee_id %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @issue.user_id %>
+</p>
+
+<p>
+  <strong>Votes:</strong>
+  <%= @issue.Votes %>
+</p>
+
+<p>
+  <strong>Attachment file name:</strong>
+  <%= @issue.attachment_file_name %>
+</p>
+
+<p>
+  <strong>Attachment content type:</strong>
+  <%= @issue.attachment_content_type %>
+</p>
+
+<p>
+  <strong>Attachment file size:</strong>
+  <%= @issue.attachment_file_size %>
+</p>
+
+<p>
+  <strong>Attachment update at:</strong>
+  <%= @issue.attachment_update_at %>
+</p>
+
+<%= link_to 'Edit', edit_issue_path(@issue) %> |
+<%= link_to 'Back', issues_path %>
