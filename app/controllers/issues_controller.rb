@@ -1,6 +1,5 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
-
   # GET /issues
   # GET /issues.json
   def index

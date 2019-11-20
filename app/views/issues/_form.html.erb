@@ -36,7 +36,7 @@
     <%= form.label :Status %>
     <%= form.select :Status, options_for_select(Issue.status), :class => 'genForm_dropBox' %>
   </div>
-
+  
   <div class="input-group">
     <%= form.label :Assignee %>
     <%= form.collection_select :assignee_id, User.all, :id, :name, {:include_blank => 'No assigned user'} %>
