@@ -1,14 +1,19 @@
 class IssuesController < ApplicationController
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
   # GET /issues
   # GET /issues.json
   def index
+    @issues = Issue.all.order(sort_column + ' ' + sort_direction)
+    @issues = @issues.where(Type: params[:Type]) if params[:Type]
+    @issues = @issues.where(Priority: params[:Priority]) if params[:Priority]
+    @issues = @issues.where(Status: params[:Status]) if params[:Status]
     respond_to do |format|
       @issues = Issue.all
       
-      if params.has_key?(:assignee)
-        if User.exists?(id: params[:assignee])
-          @issues = @issues.where(assignee_id: params[:assignee])
+      if params.has_key?(:assignee_id)
+        if User.exists?(id: params[:assignee_id])
+          @issues = @issues.where(assignee_id: params[:assignee_id])
         else
           format.json {render json: {"error":"User with id="+params[:assignee]+" does not exist"}, status: :unprocessable_entity}
         end
@@ -101,6 +106,14 @@ class IssuesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_issue
       @issue = Issue.find(params[:id])
+    end
+
+    def sort_column
+      Issue.column_names.include?(params[:sort]) ? params[:sort] : ''
+    end
+
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : ''
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

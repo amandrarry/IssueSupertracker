@@ -16,6 +16,4 @@ class Issue < ApplicationRecord
         ["Trivial", "Minor", "Major", "Critical", "Blocker"]
     end
 
-    
-    default_scope { order(created_at: :desc) }
 end
