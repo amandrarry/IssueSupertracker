@@ -1,0 +1,455 @@
+Started GET "/" for 83.47.133.27 at 2019-11-20 15:05:09 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.1) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.1) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/" for 83.47.133.27 at 2019-11-20 15:05:19 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (6.0.1) lib/active_record/migration.rb:587:in `check_pending!'
+activerecord (6.0.1) lib/active_record/migration.rb:564:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:19:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+actionpack (6.0.1) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+webpacker (4.2.0) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.0) lib/puma/configuration.rb:228:in `call'
+puma (4.3.0) lib/puma/server.rb:667:in `handle_request'
+puma (4.3.0) lib/puma/server.rb:470:in `process_client'
+puma (4.3.0) lib/puma/server.rb:328:in `block in run'
+puma (4.3.0) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (17.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (13.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateIssues (20191120133703)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "issues" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "Title" varchar, "Description" varchar, "Type" integer, "Priority" integer, "Status" varchar, "assignee_id" integer, "user_id" integer, "Votes" integer, "attachment_file_name" varchar, "attachment_content_type" varchar, "attachment_file_size" integer, "attachment_update_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191120133703"]]
+  [1m[35m (15.3ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateUsers (20191120133707)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "email" varchar, "authentication_token" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191120133707"]]
+  [1m[35m (14.5ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateVotes (20191120133710)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "votes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "issue_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191120133710"]]
+  [1m[35m (13.4ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateWatchers (20191120133713)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "watchers" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "issue_id" integer, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191120133713"]]
+  [1m[35m (12.9ms)[0m  [1m[36mcommit transaction[0m
+Migrating to CreateComments (20191120133716)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "comments" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "body" text, "issue_id" integer, "user_id" integer, "attachment_file_name" varchar, "attachment_content_type" varchar, "attachment_file_size" integer, "attachment_update_at" datetime, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20191120133716"]]
+  [1m[35m (13.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-11-20 15:05:44.254140"], ["updated_at", "2019-11-20 15:05:44.254140"]]
+  [1m[35m (11.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 83.47.133.27 at 2019-11-20 15:06:03 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 6.4ms | Allocations: 2120)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /home/ubuntu/environment/IssueSupertracker/public/packs
+[Webpacker] Hash: 53154d7baad00c6a1252
+Version: webpack 4.41.2
+Time: 2926ms
+Built at: 11/20/2019 3:06:08 PM
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-0b67a3cc2fcde6055024.js    124 KiB  application  [emitted] [immutable]  application
+js/application-0b67a3cc2fcde6055024.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-0b67a3cc2fcde6055024.js js/application-0b67a3cc2fcde6055024.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 4940ms (Views: 4921.8ms | ActiveRecord: 0.8ms | Allocations: 40929)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 15:12:34 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 6.7ms | Allocations: 2120)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 34ms (Views: 20.8ms | ActiveRecord: 0.9ms | Allocations: 15171)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 16:06:58 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 7.5ms | Allocations: 2283)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 134ms (Views: 112.7ms | ActiveRecord: 1.2ms | Allocations: 45176)
+
+
+Started GET "/issues/new" for 83.47.133.27 at 2019-11-20 16:07:05 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/issues/_form.html.erb:42
+  Rendered issues/_form.html.erb (Duration: 25.8ms | Allocations: 8425)
+  Rendered issues/new.html.erb within layouts/application (Duration: 27.8ms | Allocations: 8783)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 47ms (Views: 33.3ms | ActiveRecord: 1.5ms | Allocations: 21732)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 16:17:35 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2120)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 19.4ms | ActiveRecord: 0.8ms | Allocations: 15120)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 16:17:38 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 1231)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.4ms | ActiveRecord: 0.3ms | Allocations: 4987)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 16:17:42 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 17.9ms | Allocations: 1241)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 25ms (Views: 23.8ms | ActiveRecord: 0.4ms | Allocations: 4994)
+
+
+Started GET "/issues/new" for 83.47.133.27 at 2019-11-20 16:17:43 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/issues/_form.html.erb:42
+  Rendered issues/_form.html.erb (Duration: 10.7ms | Allocations: 5598)
+  Rendered issues/new.html.erb within layouts/application (Duration: 12.1ms | Allocations: 5955)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 20.5ms | ActiveRecord: 1.1ms | Allocations: 18874)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 16:17:53 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1217)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 1.3ms | Allocations: 4957)
+
+
+Started GET "/issues/new" for 83.47.133.27 at 2019-11-20 16:18:36 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/issues/_form.html.erb:42
+  Rendered issues/_form.html.erb (Duration: 11.1ms | Allocations: 2559)
+  Rendered issues/new.html.erb within layouts/application (Duration: 13.1ms | Allocations: 2646)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 29ms (Views: 26.4ms | ActiveRecord: 0.2ms | Allocations: 6380)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 16:18:37 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 7.2ms | Allocations: 1226)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 35ms (Views: 32.6ms | ActiveRecord: 0.4ms | Allocations: 4987)
+
+
+Started GET "/issues/new" for 83.47.133.27 at 2019-11-20 16:18:42 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/issues/_form.html.erb:42
+  Rendered issues/_form.html.erb (Duration: 5.6ms | Allocations: 2552)
+  Rendered issues/new.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2638)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.3ms | ActiveRecord: 0.2ms | Allocations: 6366)
+
+
+Started POST "/issues" for 83.47.133.27 at 2019-11-20 16:18:49 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#create as HTML
+  Parameters: {"authenticity_token"=>"fzb24Zult7fB1ZPiy0mVbMZol0cC9IOOdDq0GsYT7XeJxsTpW+AWftlwldXRt1aJ1HMcudD8qcnWdNsMmkB7AA==", "issue"=>{"Title"=>"ddd", "Description"=>"ddd", "Type"=>"Bug", "Priority"=>"Trivial", "Status"=>"Open", "assignee_id"=>""}, "commit"=>"Create Issue"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/issues_controller.rb:66:in `block in create'
+  [1m[36mIssue Create (1.0ms)[0m  [1m[32mINSERT INTO "issues" ("Title", "Description", "Type", "Priority", "Status", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["Title", "ddd"], ["Description", "ddd"], ["Type", 0], ["Priority", 0], ["Status", "Open"], ["created_at", "2019-11-20 16:18:49.101304"], ["updated_at", "2019-11-20 16:18:49.101304"]]
+  ↳ app/controllers/issues_controller.rb:66:in `block in create'
+  [1m[35m (12.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/issues_controller.rb:66:in `block in create'
+Redirected to https://546dd1867a314fd594a51d05f4572744.vfs.cloud9.us-east-2.amazonaws.com/issues/1
+Completed 302 Found in 24ms (ActiveRecord: 13.2ms | Allocations: 4157)
+
+
+Started GET "/issues/1" for 83.47.133.27 at 2019-11-20 16:18:49 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mIssue Load (0.3ms)[0m  [1m[34mSELECT "issues".* FROM "issues" WHERE "issues"."id" = ? ORDER BY "issues"."created_at" DESC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/issues_controller.rb:103:in `set_issue'
+  Rendering issues/show.html.erb within layouts/application
+  Rendered issues/show.html.erb within layouts/application (Duration: 1.4ms | Allocations: 526)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 7.8ms | ActiveRecord: 0.3ms | Allocations: 5781)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 16:18:51 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1675)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.3ms | Allocations: 5420)
+
+
+Started GET "/issues?status=Open" for 83.47.133.27 at 2019-11-20 16:18:58 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Parameters: {"status"=>"Open"}
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues" WHERE "issues"."Status" = ?[0m  [["Status", "Open"]]
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" WHERE "issues"."Status" = ? ORDER BY "issues"."created_at" DESC[0m  [["Status", "Open"]]
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 5.9ms | Allocations: 1726)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 14ms (Views: 11.9ms | ActiveRecord: 0.5ms | Allocations: 5510)
+
+
+Started DELETE "/issues/1" for 83.47.133.27 at 2019-11-20 16:19:27 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gfY8JWrFrRJ9c1ANg0NfsJCzNIjPp5+d8nDwv9fa5V3czeLL0MAIZIinZNRUnTn4ATZeRotDTQB9LduMytRp3A==", "id"=>"1"}
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" WHERE "issues"."id" = ? ORDER BY "issues"."created_at" DESC LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/issues_controller.rb:103:in `set_issue'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+  [1m[36mComment Load (0.6ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."issue_id" = ?[0m  [["issue_id", 1]]
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+  [1m[36mVote Load (0.6ms)[0m  [1m[34mSELECT "votes".* FROM "votes" WHERE "votes"."issue_id" = ?[0m  [["issue_id", 1]]
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+  [1m[36mWatcher Load (0.1ms)[0m  [1m[34mSELECT "watchers".* FROM "watchers" WHERE "watchers"."issue_id" = ?[0m  [["issue_id", 1]]
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+  [1m[36mIssue Destroy (0.4ms)[0m  [1m[31mDELETE FROM "issues" WHERE "issues"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+  [1m[35m (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/issues_controller.rb:93:in `destroy'
+Redirected to https://546dd1867a314fd594a51d05f4572744.vfs.cloud9.us-east-2.amazonaws.com/issues
+Completed 302 Found in 63ms (ActiveRecord: 15.7ms | Allocations: 15900)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 16:19:27 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 3.9ms | Allocations: 1216)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 0.3ms | Allocations: 4973)
+
+
+Started GET "/issues" for 83.47.133.27 at 2019-11-20 17:08:37 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  
+NameError (undefined local variable or method `‘auth' for #<ActionDispatch::Routing::Mapper:0x00007f3eb420a748>):
+  
+config/routes.rb:11:in `block in <main>'
+config/routes.rb:1:in `<main>'
+Started GET "/" for 83.47.133.27 at 2019-11-20 17:17:14 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 5.1ms | Allocations: 1269)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 0.8ms | Allocations: 7920)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 17:17:17 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1216)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 4983)
+
+
+Started GET "/issues/new" for 83.47.133.27 at 2019-11-20 17:18:10 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#new as HTML
+  Rendering issues/new.html.erb within layouts/application
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/issues/_form.html.erb:42
+  Rendered issues/_form.html.erb (Duration: 13.2ms | Allocations: 5321)
+  Rendered issues/new.html.erb within layouts/application (Duration: 14.0ms | Allocations: 5407)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 19.5ms | ActiveRecord: 0.6ms | Allocations: 17313)
+
+
+Started GET "/" for 83.47.133.27 at 2019-11-20 17:23:13 +0000
+Cannot render console from 83.47.133.27! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:30
+  [1m[36mIssue Load (0.1ms)[0m  [1m[34mSELECT "issues".* FROM "issues" ORDER BY "issues"."created_at" DESC[0m
+  ↳ app/views/issues/index.html.erb:63
+  Rendered issues/index.html.erb within layouts/application (Duration: 6.6ms | Allocations: 1216)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.3ms | Allocations: 4964)
+
+
