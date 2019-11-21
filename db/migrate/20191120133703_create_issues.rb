@@ -3,11 +3,11 @@ class CreateIssues < ActiveRecord::Migration[6.0]
     create_table :issues do |t|
       t.string :Title
       t.string :Description
-      t.integer :Type
-      t.integer :Priority
+      t.string :Type
+      t.string :Priority
       t.string :Status
-      t.integer :assignee_id
-      t.integer :user_id
+      t.string :assignee_id
+      t.string :user_id
       t.integer :Votes
       t.string :attachment_file_name
       t.string :attachment_content_type

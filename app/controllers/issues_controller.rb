@@ -9,7 +9,6 @@ class IssuesController < ApplicationController
     @issues = @issues.where(Priority: params[:Priority]) if params[:Priority]
     @issues = @issues.where(Status: params[:Status]) if params[:Status]
     respond_to do |format|
-      @issues = Issue.all
       
       if params.has_key?(:assignee_id)
         if User.exists?(id: params[:assignee_id])
