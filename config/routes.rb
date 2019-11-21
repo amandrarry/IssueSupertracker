@@ -14,5 +14,6 @@ Rails.application.routes.draw do
   #Routes for vote
   post '/issues/:id/vote' => "issues#vote", as: :vot
   post '/issues/:id/watcher/:index' => "issues#watcher", as: :watch
+  put '/issues/:id/status' => "issues#update_status", as: :update_status
 
 end

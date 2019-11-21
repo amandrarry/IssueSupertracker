@@ -92,6 +92,16 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update_status
+    respond_to do |format|
+      @issue_to_update = Issue.find(params[:id])
+      @issue_to_update.update_attribute("Status", params[:status])
+      
+      format.html { redirect_to @issue_to_update }
+      format.json { render json: @issue_to_update, status: :ok }
+    end
+  end
+
   # POST /issues/{issue_id}/vote
   def vote
         respond_to do |format|
