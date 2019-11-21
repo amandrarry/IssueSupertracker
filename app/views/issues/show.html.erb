@@ -1,113 +1,158 @@
-<head>
-  <style type="text/css">
-    
-    #borde {
-     
-      border:1px solid;
-      border-radius:15px;
-      -moz-border-radius:15px;
-    }
-    
-    
-  </style>
-  
-  
-</head>
-
-<p id="notice"><%= notice %></p>
-<div>
-  <p>
-    <strong><%= @issue.Title %></strong>
-    <p>Issue #<%= @issue.id%></p>
-  </p>
-</div>
-
-<div>
-  <p>
-  <p><strong> <%#= User.find(request.query_parameters[:id]=@issue.user_id).name %></strong> created an issue <small><font color="gray"><%= time_ago_in_words(@issue.created_at) + " ago" %></font></small></p> 
-  <p><%= @issue.Description %></p>
-</div>
-
-<HR>
-  <div class="col-md-8">
-    <% if @issue.comments.any? %>
-      <h3>Comentarios (<%= @issue.comments.count %>)</h3>
-      <ol class="comments">
-      <% @issue.comments.each do |comment| %>
-        <p><%= User.find(request.query_parameters[:id]=comment.user_id).name %></p>
-        <p><%= comment.body %></p>
-        <% if comment.user_id == @issue.user_id %>
-           <p><%= link_to 'Edit', edit_comment_path(comment) %> . <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> . 
-           <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
-        <% else %>
-           <p><small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
-      <br>
-       <% end %>
-    <% end %>
-      </ol>
-    <% end %>
+<header>
+  <div>
+    <div class = section-title><%= @issue.Title %></div>
+    <div class = section-subtitle>Issue #<%= @issue.id%> <%= link_to @issue.Status , issues_url(status: @issue.Status), class:"btn-link" %></div>
   </div>
-  
-  <br>
 
-<HR>
-  
-<div id="borde">
-  <table class="egt">
-    <tr>
-    <td>Assignee</td>
-    <% if !@issue.assignee_id.nil? %>
-       <td><%= link_to User.find(request.query_parameters[:id]=@issue.assignee_id).name, issues_url(assignee_id: @issue.assignee_id), class:"btn-link" %><td>
-    <% else %>
-    <td>-</td>
-    <% end %>
-  </tr>
-  <tr>
-    <td>Type</td>
-    <td><%= @issue.Type %></td>
-  </tr>
-  <tr>
-    <td>Priority</td>
-    <td><%= @issue.Priority %></td>
-  </tr>
-  <tr>
-    <td>Status</td>
-    <td><%= @issue.Status %></td>
-  </tr>
-  <tr>
-    <td>Votes</td>
-     <td> <%= @issue.votes.size %>
-        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => 1) %>
-        <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"vote" %>
-        <% else %>
-        <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"vote" %>
-        <% end %>
-      </td>
-  </tr>
-  <tr>
-    <td>Watchers</td>
-    <td><%= @issue.Watchers %>
-      <% if !Watcher.exists?(:issue_id => @issue.id, :user_id => 1) %>
-                <%= link_to 'Watch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
-              <%else %>
-                <%= link_to 'Unwatch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
+  <div>
+    <p><strong> <%= User.find(@issue.user_id).name %> </strong> created an issue <small><font color="gray"><%= time_ago_in_words(@issue.created_at) + " ago" %></font></small></p>
+    <p><%= @issue.Description %></p>
+  </div>
+</header>
+
+
+<div class = "contenedor">
+  <div class = "columna">
+      <div class="col-md-8">
+        <h2>Comentarios (<%= @issue.comments.count %>)</h2>
+
+        <% @issue.comments.each do |comment| %>
+          <div class="comments">
+
+            <p class="comenter">
+              <%= User.find(comment.user_id).name %>
+            </p>
+
+            <p class="coment">
+              <%= comment.body %>
+              </br>
+            </p>
+
+            <p> <% if comment.user_id == current_user.id%>
+                <%= link_to 'Delete ', [Issue.find(comment.issue_id), comment],
+                            method: :delete,
+                            data: { confirm: 'Are you sure?' } , class: "destroy" %> .
               <% end %>
-    </td>
-  </tr>
-</table>
-  
-</div>
+              <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
+          </div>
+          </br>
+        <% end %>
 
-<div class="page-actions">
-      <%= link_to new_issue_path, class: 'create-button' do %>
-        <span class="glyphicon glyphicon-plus"></span>
-        <span class="createi-button">Create issue</span>
-      <% end %>
+
+        <%= form_with(model: [@issue, @issue.comments.build], local: true) do |form| %>
+          <div id = container>
+            <div>
+              <%= form.text_area :body %>
+            </div>
+              <br>
+            <div id = "CreateComment">
+              <%= form.submit :class => 'submit' %>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
   </div>
-  
-  
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
-<%= link_to 'Back', issues_path %>
+
+  <div class = table-description>
+
+    <div class = "columna2">
+
+      <% if current_user.id == @issue.user_id %>
+        <div class="issue-toolbar">
+          <div class="dropdown">
+      <span style="margin-right:5px; background: #8D8DF4; padding:8px; font-weight: bold">
+        <% if @issue.Status == "Open" || @issue.Status == "New" %>
+          <a class="resolved"> <%= link_to 'Resolve', update_status_url(id: @issue.id, status: "Resolved"), method: :put %> </a>
+        <% else %>
+          <%= link_to 'Open', update_status_url(id: @issue.id, status: "Open"), method: :put, class:'open'%>
+        <% end %>
+      </span>
+            <button class="show-button dropdown-toggle next-to" type="button" data-toggle="dropdown">Workflow
+              <span class="caret"></span></button>
+            <ul class="drop-menu">
+              <% Issue.status.each do |status| %>
+                <% if status != @issue.Status %>
+                  <%= content_tag(:li, link_to(status, update_status_url(id: @issue.id, status: status), method: :put)) %>
+                <% end %>
+              <% end %>
+            </ul>
+
+            <button type="button" class="btn btn-light">
+              <span class="createi-button">                         <a href="#" data-toggle="modal" data-target="#attachmodal" class="show-button">Attach</a>
+
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-light">
+              <span class="createi-button">              <a href="/issues/<%= @issue.id %>/edit" class="show-button">Edit</a>
+              </span>
+            </button>
+
+            <button type="button" class="btn btn-light">
+              <%= link_to 'Delete', @issue,  method: :delete, class: 'show-button', data: { confirm: 'Are you sure you want to delete this issue?' } %>
+                <span class="createi-button"></span>
+            </button>
+
+             <button type="button" class="btn btn-light">
+                <%= link_to new_issue_path, class: 'create-button' do %>
+                  <span class="createi-button">Create issue</span>
+                <% end %>
+              </button>
+          </div>
+        </div>
+      <%end%>
+
+    <div class = border>
+    <table class="egt">
+      <tr>
+        <td class = "label-list">Assignee</td>
+        <% if !@issue.assignee_id.nil? %>
+          <td class = "link-list"><%= link_to User.find(request.query_parameters[:id]=@issue.assignee_id).name, issues_url(assignee_id: @issue.assignee_id), class:"btn-link" %><td>
+        <% else %>
+          <td>-</td>
+        <% end %>
+      </tr>
+      <tr>
+        <td class = "label-list">Type</td>
+        <td class = "link-list"><%= link_to @issue.Type , issues_url(type: @issue.Type), class:"btn-link" %></td>
+      </tr>
+      <tr>
+        <td class = "label-list">Priority</td>
+        <td class = "link-list"><%= link_to @issue.Priority , issues_url(priority: @issue.Priority), class:"btn-link" %></td>
+      </tr>
+      <tr>
+        <td class = "label-list">Status</td>
+        <td class = "link-list"><%= link_to @issue.Status , issues_url(status: @issue.Status), class:"btn-link" %></td>
+      </tr>
+      <tr>
+        <td  class = "label-list">Votes</td>
+        <td class = link-list> <%= @issue.votes.size %>
+          <% if !Vote.exists?(:issue_id => @issue.id, :user_id => current_user.id) %>
+            <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"btn-link" %>
+          <% else %>
+            <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"btn-link" %>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td  class = "label-list">Watchers</td>
+        <td class = link-list><%= @issue.Watchers %>
+          <% if !Watcher.exists?(:issue_id => @issue.id, :user_id => current_user.id) %>
+            <%= link_to 'Watch', watch_url(id: @issue.id, index: "id"), method: :post, class:"btn-link" %>
+          <%else %>
+            <%= link_to 'Unwatch', watch_url(id: @issue.id, index: "id"), method: :post, class:"btn-link" %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+    </div>
 
 
-<%= link_to 'Comment', comments_path %>
+<hr>
+      <%= link_to 'Back', issues_path %>

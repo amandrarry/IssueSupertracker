@@ -3,9 +3,12 @@
 <div class="header">
   <div class="section-title">
     <h1>Issues</h1>
+
+    <% if current_user %>
+      <div class = section-subtitle> The current user is: <%= current_user.name %> </div>
+    <%end%>
   </div>
    <% if current_user %>
-   <div class = section-subtitle> <%= current_user.name %> </div>
     <div class = create-issue>
       <button type="button" class="btn btn-light">
         <%= link_to new_issue_path, class: 'create-button' do %>
