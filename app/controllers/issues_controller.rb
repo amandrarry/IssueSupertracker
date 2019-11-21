@@ -111,6 +111,32 @@ class IssuesController < ApplicationController
           format.json { render json: @issue_to_vote, status: :ok }
         end
     end
+
+  # POST /issues/{issue_id}/watcher
+    def watcher
+        respond_to do |format|
+          @issue_to_watcher = Issue.find(params[:id])
+          if !Watcher.exists?(:issue_id => @issue_to_watcher.id, :user_id => 1)
+            @watcher = Watcher.new
+            @watcher.user_id = 1
+            @watcher.issue_id = @issue_to_watcher.id
+            @watcher.save
+            @issue_to_watcher.increment!("Watchers")
+          else
+            @watcher = Watcher.where(issue_id: params[:id], user_id: 1).take
+            @watcher.destroy
+            @issue_to_watcher.decrement!("Watchers")
+          end
+          if params[:index] != "index"
+            format.html { redirect_to @issue_to_watcher }
+            format.json { render json: @issue_to_watcher, status: :ok }
+          else
+            format.html { redirect_to issues_url, notice: 'Watching Issue' }
+            format.json { head :no_content }
+          end
+          
+        end
+    end
   
   # DELETE /issues/1
   # DELETE /issues/1.json

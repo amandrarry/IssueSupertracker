@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2019_11_20_133716) do
     t.string "assignee_id"
     t.string "user_id"
     t.integer "Votes"
+    t.integer "Watchers"
     t.string "attachment_file_name"
     t.string "attachment_content_type"
     t.integer "attachment_file_size"

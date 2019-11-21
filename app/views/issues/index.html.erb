@@ -81,6 +81,14 @@
             <td><%= time_ago_in_words(issue.created_at) + " ago" %></td>
             <td><%= time_ago_in_words(issue.updated_at) + " ago" %></td>
             <td>
+              <% if !Watcher.exists?(:issue_id => issue.id, :user_id => 1) %>
+                <%= link_to 'Watch', watch_url(id: issue.id, index: "index" ), method: :post, class:"watcher" %>
+              <%else %>
+                <%= link_to 'Unwatch', watch_url(id: issue.id, index: "index"), method: :post, class:"watcher" %>
+              <% end %>
+              
+            </td>
+
             <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </td>
         </tr>

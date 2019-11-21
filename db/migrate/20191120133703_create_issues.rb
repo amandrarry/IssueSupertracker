@@ -9,6 +9,7 @@ class CreateIssues < ActiveRecord::Migration[6.0]
       t.string :assignee_id
       t.string :user_id
       t.integer :Votes
+      t.integer :Watchers
       t.string :attachment_file_name
       t.string :attachment_content_type
       t.integer :attachment_file_size

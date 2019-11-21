@@ -86,13 +86,13 @@
   </tr>
   <tr>
     <td>Watchers</td>
-    <td> <%= @issue.votes.size %>
-        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => 1) %>
-        <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"vote" %>
-        <% else %>
-        <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"vote" %>
-        <% end %>
-      </td>
+    <td><%= @issue.Watchers %>
+      <% if !Watcher.exists?(:issue_id => @issue.id, :user_id => 1) %>
+                <%= link_to 'Watch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
+              <%else %>
+                <%= link_to 'Unwatch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
+              <% end %>
+    </td>
   </tr>
 </table>
   
