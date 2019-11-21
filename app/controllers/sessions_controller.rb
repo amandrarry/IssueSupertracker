@@ -1,3 +1,4 @@
+class SessionsController < ApplicationController
 def googleAuth
     # Get access tokens from the google server
     access_token = request.env["omniauth.auth"]
@@ -11,4 +12,5 @@ def googleAuth
     user.google_refresh_token = refresh_token if refresh_token.present?
     user.save
     redirect_to root_path
+end
 end
