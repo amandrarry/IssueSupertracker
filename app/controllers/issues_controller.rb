@@ -98,7 +98,11 @@ class IssuesController < ApplicationController
     respond_to do |format|
       @issue_to_update = Issue.find(params[:id])
       @issue_to_update.update_attribute("Status", params[:status])
-      
+      @comment = Comment.new()
+      @comment.issue_id = @issue_to_update.id
+      @comment.user_id = current_user.id
+      @comment.body = " changed status to " + params[:status]
+      @comment.save
       format.html { redirect_to @issue_to_update }
       format.json { render json: @issue_to_update, status: :ok }
     end

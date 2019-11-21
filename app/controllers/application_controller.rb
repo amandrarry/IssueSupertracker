@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def set_current_user
-  	@user = User.find(2)
+  	@user = User.find(1)
     @current_user = @user
   end
 

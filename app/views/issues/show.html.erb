@@ -18,7 +18,7 @@
 <div>
   <p>
     <strong><%= @issue.Title %></strong>
-    <p>Issue #<%= @issue.id%></p>
+    <p>Issue #<%= @issue.id%> <%= link_to @issue.Status , issues_url(status: @issue.Status), class:"btn-link" %></p>
   </p>
 </div>
 
@@ -50,8 +50,17 @@
         <a href="#" data-toggle="modal" data-target="#attachmodal" class="show-button">Attach</a>
 
         <a href="/issues/<%= @issue.id %>/edit" class="show-button">Edit</a>
+
+        
       
         <%= link_to 'Delete', @issue,  method: :delete, class: 'show-button', data: { confirm: 'Are you sure you want to delete this issue?' } %>
+
+        <div class="page-actions">
+          <%= link_to new_issue_path, class: 'create-button' do %>
+          <span class="glyphicon glyphicon-plus"></span>
+          <span class="createi-button">Create issue</span>
+          <% end %>
+        </div>
     </div>
   </div>
 </div>
@@ -74,9 +83,9 @@
             </p>
             
              <p> <% if comment.user_id == current_user.id%>
-             <%= link_to 'Delete Comment', [Issue.find(comment.issue_id), comment],
+              <%= link_to 'Delete ', [Issue.find(comment.issue_id), comment],
                        method: :delete,
-                       data: { confirm: 'Are you sure?' } , class: "esborrar" %> .
+                       data: { confirm: 'Are you sure?' } , class: "destroy" %> .
               <% end %>
               <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
           </div>
@@ -111,15 +120,15 @@
   </tr>
   <tr>
     <td>Type</td>
-    <td><%= @issue.Type %></td>
+    <td><%= link_to @issue.Type , issues_url(type: @issue.Type), class:"btn-link" %></td>
   </tr>
   <tr>
     <td>Priority</td>
-    <td><%= @issue.Priority %></td>
+    <td><%= link_to @issue.Priority , issues_url(priority: @issue.Priority), class:"btn-link" %></td>
   </tr>
   <tr>
     <td>Status</td>
-    <td><%= @issue.Status %></td>
+    <td><%= link_to @issue.Status , issues_url(status: @issue.Status), class:"btn-link" %></td>
   </tr>
   <tr>
     <td>Votes</td>
@@ -145,11 +154,6 @@
   
 </div>
 
-<div class="page-actions">
-      <%= link_to new_issue_path, class: 'create-button' do %>
-        <span class="glyphicon glyphicon-plus"></span>
-        <span class="createi-button">Create issue</span>
-      <% end %>
-  </div>
+
   
 <%= link_to 'Back', issues_path %>
