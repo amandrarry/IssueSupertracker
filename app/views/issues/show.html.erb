@@ -1,24 +1,8 @@
-<head>
-  <style type="text/css">
-    
-    #borde {
-     
-      border:1px solid;
-      border-radius:15px;
-      -moz-border-radius:15px;
-    }
-    
-    
-  </style>
-  
-  
-</head>
-
-<p id="notice"><%= notice %></p>
+ <p id="notice"><%= notice %></p>
 <div>
   <p>
-    <strong><%= @issue.Title %></strong>
-    <p>Issue #<%= @issue.id%></p>
+      <div class = issue-title><%= @issue.Title %></div>
+      <p>Issue #<%= @issue.id%></p>
   </p>
 </div>
 
@@ -37,7 +21,7 @@
         <p><%= User.find(request.query_parameters[:id]=comment.user_id).name %></p>
         <p><%= comment.body %></p>
         <% if comment.user_id == @issue.user_id %>
-           <p><%= link_to 'Edit', edit_comment_path(comment) %> . <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> . 
+           <p><%= link_to 'Edit', edit_comment_path(comment) %> . <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> .
            <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
         <% else %>
            <p><small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
@@ -47,7 +31,7 @@
       </ol>
     <% end %>
   </div>
-  
+
   <br>
 
 <HR>
@@ -95,7 +79,7 @@
     </td>
   </tr>
 </table>
-  
+
 </div>
 
 <div class="page-actions">
@@ -108,6 +92,5 @@
   
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
-
 
 <%= link_to 'Comment', comments_path %>
