@@ -6,8 +6,8 @@ class CreateIssues < ActiveRecord::Migration[6.0]
       t.string :Type
       t.string :Priority
       t.string :Status
-      t.string :assignee_id
-      t.string :user_id
+      t.integer :assignee_id
+      t.integer :user_id
       t.integer :Votes
       t.integer :Watchers
       t.string :attachment_file_name

@@ -1,6 +1,8 @@
 class IssuesController < ApplicationController
+  before_action :set_current_user
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  
   # GET /issues
   # GET /issues.json
   def index
@@ -10,9 +12,9 @@ class IssuesController < ApplicationController
     @issues = @issues.where(Status: params[:Status]) if params[:Status]
     respond_to do |format|
       
-      if params.has_key?(:assignee_id)
-        if User.exists?(id: params[:assignee_id])
-          @issues = @issues.where(assignee_id: params[:assignee_id])
+      if params.has_key?(:assignee)
+        if User.exists?(id: params[:assignee])
+          @issues = @issues.where(assignee_id: params[:assignee])
         else
           format.json {render json: {"error":"User with id="+params[:assignee]+" does not exist"}, status: :unprocessable_entity}
         end
@@ -33,7 +35,7 @@ class IssuesController < ApplicationController
         @issues = @issues.where(Status: params[:status])
         end
       end
-      
+
       if params.has_key?(:watcher)
         if User.exists?(id: params[:watcher])
           @issues = Issue.joins(:watchers).where(watchers:{user_id: params[:watcher]})
@@ -65,7 +67,7 @@ class IssuesController < ApplicationController
   # POST /issues.json
   def create
     @issue = Issue.new(issue_params)
-
+    @issue.user_id = current_user.id
     respond_to do |format|
       if @issue.save
         format.html { redirect_to @issue, notice: 'Issue was successfully created.' }
@@ -92,18 +94,32 @@ class IssuesController < ApplicationController
     end
   end
 
+  def update_status
+    respond_to do |format|
+      @issue_to_update = Issue.find(params[:id])
+      @issue_to_update.update_attribute("Status", params[:status])
+      @comment = Comment.new()
+      @comment.issue_id = @issue_to_update.id
+      @comment.user_id = current_user.id
+      @comment.body = " changed status to " + params[:status]
+      @comment.save
+      format.html { redirect_to @issue_to_update }
+      format.json { render json: @issue_to_update, status: :ok }
+    end
+  end
+
   # POST /issues/{issue_id}/vote
   def vote
         respond_to do |format|
           @issue_to_vote = Issue.find(params[:id])
-          if !Vote.exists?(:issue_id => @issue_to_vote.id, :user_id => 1)
+          if !Vote.exists?(:issue_id => @issue_to_vote.id, :user_id => current_user.id)
             @vote = Vote.new
-            @vote.user_id = 2
+            @vote.user_id = current_user.id
             @vote.issue_id = @issue_to_vote.id
             @vote.save
             @issue_to_vote.increment!("Votes")
           else
-            @vote = Vote.where(issue_id: params[:id], user_id: 1).take
+            @vote = Vote.where(issue_id: params[:id], user_id: current_user.id).take
             @vote.destroy
             @issue_to_vote.decrement!("Votes")
           end
@@ -116,14 +132,14 @@ class IssuesController < ApplicationController
     def watcher
         respond_to do |format|
           @issue_to_watcher = Issue.find(params[:id])
-          if !Watcher.exists?(:issue_id => @issue_to_watcher.id, :user_id => 1)
+          if !Watcher.exists?(:issue_id => @issue_to_watcher.id, :user_id => current_user.id)
             @watcher = Watcher.new
-            @watcher.user_id = 1
+            @watcher.user_id = current_user.id
             @watcher.issue_id = @issue_to_watcher.id
             @watcher.save
             @issue_to_watcher.increment!("Watchers")
           else
-            @watcher = Watcher.where(issue_id: params[:id], user_id: 1).take
+            @watcher = Watcher.where(issue_id: params[:id], user_id: current_user.id).take
             @watcher.destroy
             @issue_to_watcher.decrement!("Watchers")
           end
@@ -137,7 +153,9 @@ class IssuesController < ApplicationController
           
         end
     end
-  
+
+    # POST /issues/{issue_id}/comment
+   
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
