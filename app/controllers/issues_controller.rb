@@ -10,13 +10,15 @@ class IssuesController < ApplicationController
     @issues = @issues.where(Type: params[:Type]) if params[:Type]
     @issues = @issues.where(Priority: params[:Priority]) if params[:Priority]
     @issues = @issues.where(Status: params[:Status]) if params[:Status]
+
+
     respond_to do |format|
       
-      if params.has_key?(:assignee)
-        if User.exists?(id: params[:assignee])
-          @issues = @issues.where(assignee_id: params[:assignee])
+      if params.has_key?(:assignee_id)
+        if User.exists?(id: params[:assignee_id])
+          @issues = @issues.where(assignee_id: params[:assignee_id])
         else
-          format.json {render json: {"error":"User with id="+params[:assignee]+" does not exist"}, status: :unprocessable_entity}
+          format.json {render json: {"error":"User with id="+params[:assignee_id]+" does not exist"}, status: :unprocessable_entity}
         end
       end
       
