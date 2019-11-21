@@ -27,6 +27,7 @@
   <p><strong> <%#= User.find(request.query_parameters[:id]=@issue.user_id).name %></strong> created an issue <small><font color="gray"><%= time_ago_in_words(@issue.created_at) + " ago" %></font></small></p> 
   <p><%= @issue.Description %></p>
 </div>
+<% if current_user.id == @issue.user_id %> 
 <div class="issue-toolbar">
   <div class="dropdown">
       <span style="margin-right:5px; background: #8D8DF4; padding:8px; font-weight: bold">
@@ -54,7 +55,7 @@
     </div>
   </div>
 </div>
-
+<%end%>
 <HR>
   <div class="col-md-8">
     <% if @issue.comments.any? %>
@@ -104,7 +105,7 @@
   <tr>
     <td>Votes</td>
      <td> <%= @issue.votes.size %>
-        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => 1) %>
+        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => current_user.id) %>
         <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"vote" %>
         <% else %>
         <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"vote" %>
@@ -114,7 +115,7 @@
   <tr>
     <td>Watchers</td>
     <td><%= @issue.Watchers %>
-      <% if !Watcher.exists?(:issue_id => @issue.id, :user_id => 1) %>
+      <% if !Watcher.exists?(:issue_id => @issue.id, :user_id => current_user.id) %>
                 <%= link_to 'Watch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
               <%else %>
                 <%= link_to 'Unwatch', watch_url(id: @issue.id, index: "id"), method: :post, class:"watcher" %>
@@ -132,9 +133,5 @@
       <% end %>
   </div>
   
-  
-<%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
-
-
 <%= link_to 'Comment', comments_path %>

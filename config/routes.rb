@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :votes
   resources :users
   resources :issues
+  get '/users/current_user' => "users#the_current_user", as: :current_user
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'issues#index'
   
