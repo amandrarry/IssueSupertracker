@@ -4,30 +4,37 @@
   <div class="section-title">
     <h1>Issues</h1>
   </div>
-  <div class="page-actions">
+  <div class = create-issue>
+    <button type="button" class="btn btn-light">
       <%= link_to new_issue_path, class: 'create-button' do %>
-        <span class="glyphicon glyphicon-plus"></span>
-        <span class="createi-button">Create issue</span>
-      <% end %>
+          <span class="createi-button">Create issue</span>
+        <% end %>
+    </button>
   </div>
 </div>
 
 
 <div class="issues">
-
   <div class="issues-toolbar">
     <div class="filter-container">
       <p class="filter-label">Filters:</p>
-      <ul class="filter-status">
-        <li id="all" class="aui-button">
-          <a href="/issues">All</a>
-        </li>
-      
-      </ul>
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-secondary"><a href="/issues">All</a></button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-secondary"><a href="/issues">All</a></button>
+        </div>
+        <div class="btn-group" role="group" aria-label="Third group">
+          <button type="button" class="btn btn-secondary"><a href="/issues">All</a></button>
+        </div>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-secondary"><a href="/issues">All</a></button>
+        </div>
+      </div>
     </div>
   </div>
-
-  <h2>Issues (<%= @issues.size %>)</h2>
+</div>
 
   <p id="issues-filter-criteria">
     <% if request.query_parameters[:type] %>
@@ -44,8 +51,10 @@
     <% end %>
   </p>
 
-  <table class="issue-list">
+  <div class = section-subtitle>Issues (<%= @issues.size %>)</div>
+  <table class="table table-hover">
     <thead>
+      <tr>
         <%= sortable "id", "Title" %>
         <%= sortable "Type", "T" %>
         <%= sortable "Priority", "P" %>
@@ -54,17 +63,17 @@
         <%= sortable "assignee_id", "Assignee" %>
         <%= sortable "created_at", "Created" %>
         <%= sortable "updated_at", "Updated" %>
+      </tr>
     </thead>
     <tbody>
-      <tbody>
-        <% @issues.each do |issue| %>
-          <tr><!--@products = Product.status("active").starts_with("Ruby")-->
-            <td><%= link_to issue.Title , issue, class:"btn-link" %></td>
-            <td><%= link_to issue.Type , issues_url(type: issue.Type), class:"btn-link" %></td>
-            <td><%= link_to issue.Priority , issues_url(priority: issue.Priority), class:"btn-link" %></td>
-            <td><%= link_to issue.Status , issues_url(status: issue.Status), class:"btn-link" %></td>
-            <td><%= issue.Votes %></td>
-            <% if !issue.assignee_id.nil? %>
+      <% @issues.each do |issue| %>
+        <tr><!--@products = Product.status("active").starts_with("Ruby")-->
+          <td><%= link_to issue.Title , issue, class:"btn-link" %></td>
+          <td><%= link_to issue.Type , issues_url(type: issue.Type), class:"btn-link" %></td>
+          <td><%= link_to issue.Priority , issues_url(priority: issue.Priority), class:"btn-link" %></td>
+          <td><%= link_to issue.Status , issues_url(status: issue.Status), class:"btn-link" %></td>
+          <td><%= issue.Votes %></td>
+          <% if !issue.assignee_id.nil? %>
             <td><%= link_to issue.assignee_id, issues_url(assignee_id: issue.assignee_id) , class:"btn-link" %></td>
             <% else %>
             <td></td>
@@ -74,8 +83,8 @@
             <td>
             <td><%= link_to 'Destroy', issue, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </td>
-          </tr>
-        <% end %>
-      </tbody>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 </div>
