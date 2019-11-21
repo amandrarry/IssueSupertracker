@@ -55,3 +55,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #Google login
 gem 'omniauth-google-oauth2'
+
+
+gem 'bootstrap-sass', '3.3.7'

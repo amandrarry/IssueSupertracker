@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root 'issues#index'
   
   # Routes for Google authentication
-  get ‘auth/:provider/callback’, to: ‘sessions#googleAuth’
-  get ‘auth/failure’, to: redirect(‘/’)
+  # get ‘auth/:provider/callback’, to: ‘sessions#googleAuth’
+  # get ‘auth/failure’, to: redirect(‘/’)
 
 end
