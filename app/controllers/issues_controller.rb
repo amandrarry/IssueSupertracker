@@ -77,6 +77,7 @@ class IssuesController < ApplicationController
     end
   end
 
+
   # PATCH/PUT /issues/1
   # PATCH/PUT /issues/1.json
   def update
@@ -91,6 +92,26 @@ class IssuesController < ApplicationController
     end
   end
 
+  # POST /issues/{issue_id}/vote
+  def vote
+        respond_to do |format|
+          @issue_to_vote = Issue.find(params[:id])
+          if !Vote.exists?(:issue_id => @issue_to_vote.id, :user_id => 1)
+            @vote = Vote.new
+            @vote.user_id = 2
+            @vote.issue_id = @issue_to_vote.id
+            @vote.save
+            @issue_to_vote.increment!("Votes")
+          else
+            @vote = Vote.where(issue_id: params[:id], user_id: 1).take
+            @vote.destroy
+            @issue_to_vote.decrement!("Votes")
+          end
+          format.html { redirect_to @issue_to_vote }
+          format.json { render json: @issue_to_vote, status: :ok }
+        end
+    end
+  
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy

@@ -1,64 +1,113 @@
+<head>
+  <style type="text/css">
+    
+    #borde {
+     
+      border:1px solid;
+      border-radius:15px;
+      -moz-border-radius:15px;
+    }
+    
+    
+  </style>
+  
+  
+</head>
+
 <p id="notice"><%= notice %></p>
+<div>
+  <p>
+    <strong><%= @issue.Title %></strong>
+    <p>Issue #<%= @issue.id%></p>
+  </p>
+</div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @issue.Title %>
-</p>
+<div>
+  <p>
+  <p><strong> <%#= User.find(request.query_parameters[:id]=@issue.user_id).name %></strong> created an issue <small><font color="gray"><%= time_ago_in_words(@issue.created_at) + " ago" %></font></small></p> 
+  <p><%= @issue.Description %></p>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @issue.Description %>
-</p>
+<HR>
+  <div class="col-md-8">
+    <% if @issue.comments.any? %>
+      <h3>Comentarios (<%= @issue.comments.count %>)</h3>
+      <ol class="comments">
+      <% @issue.comments.each do |comment| %>
+        <p><%= User.find(request.query_parameters[:id]=comment.user_id).name %></p>
+        <p><%= comment.body %></p>
+        <% if comment.user_id == @issue.user_id %>
+           <p><%= link_to 'Edit', edit_comment_path(comment) %> . <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> . 
+           <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
+        <% else %>
+           <p><small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
+      <br>
+       <% end %>
+    <% end %>
+      </ol>
+    <% end %>
+  </div>
+  
+  <br>
 
-<p>
-  <strong>Type:</strong>
-  <%= @issue.Type %>
-</p>
+<HR>
+  
+<div id="borde">
+  <table class="egt">
+    <tr>
+    <td>Assignee</td>
+    <% if !@issue.assignee_id.nil? %>
+       <td><%= link_to User.find(request.query_parameters[:id]=@issue.assignee_id).name, issues_url(assignee_id: @issue.assignee_id), class:"btn-link" %><td>
+    <% else %>
+    <td>-</td>
+    <% end %>
+  </tr>
+  <tr>
+    <td>Type</td>
+    <td><%= @issue.Type %></td>
+  </tr>
+  <tr>
+    <td>Priority</td>
+    <td><%= @issue.Priority %></td>
+  </tr>
+  <tr>
+    <td>Status</td>
+    <td><%= @issue.Status %></td>
+  </tr>
+  <tr>
+    <td>Votes</td>
+     <td> <%= @issue.votes.size %>
+        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => 1) %>
+        <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"vote" %>
+        <% else %>
+        <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"vote" %>
+        <% end %>
+      </td>
+  </tr>
+  <tr>
+    <td>Watchers</td>
+    <td> <%= @issue.votes.size %>
+        <% if !Vote.exists?(:issue_id => @issue.id, :user_id => 1) %>
+        <%= link_to 'Vote for this issue', vot_path(id: @issue.id), method: :post, class:"vote" %>
+        <% else %>
+        <%= link_to 'Remove vote', vot_path(id: @issue.id), method: :post, class:"vote" %>
+        <% end %>
+      </td>
+  </tr>
+</table>
+  
+</div>
 
-<p>
-  <strong>Priority:</strong>
-  <%= @issue.Priority %>
-</p>
-
-<p>
-  <strong>Status:</strong>
-  <%= @issue.Status %>
-</p>
-
-<p>
-  <strong>Assignee:</strong>
-  <%= @issue.assignee_id %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @issue.user_id %>
-</p>
-
-<p>
-  <strong>Votes:</strong>
-  <%= @issue.Votes %>
-</p>
-
-<p>
-  <strong>Attachment file name:</strong>
-  <%= @issue.attachment_file_name %>
-</p>
-
-<p>
-  <strong>Attachment content type:</strong>
-  <%= @issue.attachment_content_type %>
-</p>
-
-<p>
-  <strong>Attachment file size:</strong>
-  <%= @issue.attachment_file_size %>
-</p>
-
-<p>
-  <strong>Attachment update at:</strong>
-  <%= @issue.attachment_update_at %>
-</p>
-
+<div class="page-actions">
+      <%= link_to new_issue_path, class: 'create-button' do %>
+        <span class="glyphicon glyphicon-plus"></span>
+        <span class="createi-button">Create issue</span>
+      <% end %>
+  </div>
+  
+  
 <%= link_to 'Edit', edit_issue_path(@issue) %> |
 <%= link_to 'Back', issues_path %>
+
+
+<%= link_to 'Comment', comments_path %>
