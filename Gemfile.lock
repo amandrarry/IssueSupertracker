@@ -131,6 +131,7 @@ GEM
     omniauth-oauth2 (1.6.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.9)
+    pg (1.1.4)
     public_suffix (4.0.1)
     puma (4.3.0)
       nio4r (~> 2.0)
@@ -241,13 +242,14 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   omniauth-google-oauth2
+  pg (= 1.1.4)
   puma (~> 4.1)
   rails (~> 6.0.1)
   sass-rails (>= 6)
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3 (= 1.4.1)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 3.3.0)
