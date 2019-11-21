@@ -57,27 +57,46 @@
 </div>
 <%end%>
 <HR>
-  <div class="col-md-8">
-    <% if @issue.comments.any? %>
-      <h3>Comentarios (<%= @issue.comments.count %>)</h3>
-      <ol class="comments">
-      <% @issue.comments.each do |comment| %>
-        <p><%= User.find(request.query_parameters[:id]=comment.user_id).name %></p>
-        <p><%= comment.body %></p>
-        <% if comment.user_id == @issue.user_id %>
-           <p><%= link_to 'Edit', edit_comment_path(comment) %> . <%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %> . 
-           <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
-        <% else %>
-           <p><small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
-      <br>
-       <% end %>
-    <% end %>
-      </ol>
-    <% end %>
-  </div>
-  
-  <br>
+ <div class="col-md-8">
+        
+        <h2>Comentarios (<%= @issue.comments.count %>)</h2>
+        
+        <% @issue.comments.each do |comment| %>
+          <div class="comments">
+            
+            <p class="comenter">
+              <%= User.find(comment.user_id).name %>
+            </p>
+           
+            <p class="coment">
+              <%= comment.body %>
+              </br>      
+            </p>
+            
+             <p> <% if comment.user_id == current_user.id%>
+             <%= link_to 'Delete Comment', [Issue.find(comment.issue_id), comment],
+                       method: :delete,
+                       data: { confirm: 'Are you sure?' } , class: "esborrar" %> .
+              <% end %>
+              <small><font color="gray"><%= time_ago_in_words(comment.created_at) + " ago" %></font></small></p>
+          </div>
+          </br>
+        <% end %>
 
+
+        <%= form_with(model: [@issue, @issue.comments.build], local: true) do |form| %>
+        <div>
+          <%= form.text_area :body %>
+          <br>
+          <%= form.submit :class => 'submit' %>
+
+        </div>
+      <% end %>
+      </div>
+    </div>
+    
+  </div>
+</div>
 <HR>
   
 <div id="borde">
@@ -134,4 +153,3 @@
   </div>
   
 <%= link_to 'Back', issues_path %>
-<%= link_to 'Comment', comments_path %>

@@ -1,8 +1,7 @@
 class CommentsController < ApplicationController
-  protect_from_forgery with: :null_session
-  acts_as_token_authentication_handler_for User, fallback: :devise
-  before_action :authenticate_user!
 
+  # GET /comments
+  # GET /comments.json
   def index
     @issue = Issue.find(params[:issue_id])
     comments = @issue.comments
@@ -26,7 +25,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
     @comment.save
     respond_to do |format|
-      format.json {render json: @comment, status: :created, each_serializer: CommentSerializer}
+      format.json {render json: @comment}
       format.html {redirect_to issue_path(@issue)}
     end
   end
@@ -63,36 +62,8 @@ class CommentsController < ApplicationController
     end
   end
 
-  def show_attachment
-    @issue = Issue.find(params[:issue_id])
-    @comment = @issue.comments.find(params[:id])
-    respond_to do |format|
-      if @comment.attachment.file?
-        format.json {render json: @comment, status: :ok, serializer: AttachmentSerializer}
-      else
-        format.json {render json: {}, status: :ok}
-      end
-    end
-  end
-
-  def create_attachment
-    @issue = Issue.find(params[:issue_id])
-    @comment = @issue.comments.find(params[:id])
-    if @comment.user_id == current_user.id
-      @comment.attachment = Paperclip.io_adapters.for(params[:file])
-      @comment.save
-    end
-    respond_to do |format|
-      if @comment.user_id == current_user.id
-        format.json {render json: @comment, status: :created, serializer: AttachmentSerializer}
-      else
-        format.json {render json: {error: "Forbidden, you are not the creator of this comment"}, status: :forbidden}
-      end        
-    end
-  end
- 
   private
     def comment_params
-      params.permit(:body, :attachment, :issue_id, :user_id, :comment)
+      params.require(:comment).permit(:body, :issue_id)
     end
 end

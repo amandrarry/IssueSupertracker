@@ -79,7 +79,7 @@
           <td><%= link_to issue.Status , issues_url(status: issue.Status), class:"btn-link" %></td>
           <td><%= issue.Votes %></td>
           <% if !issue.assignee_id.nil? %>
-            <td><%= link_to issue.assignee_id, issues_url(assignee_id: issue.assignee_id) , class:"btn-link" %></td>
+            <td><%= link_to User.find(issue.assignee_id).name, issues_url(assignee_id: issue.assignee_id) , class:"btn-link" %></td>
             <% else %>
             <td></td>
             <% end %>

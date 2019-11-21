@@ -2,6 +2,7 @@ class IssuesController < ApplicationController
   before_action :set_current_user
   before_action :set_issue, only: [:show, :edit, :update, :destroy]
   helper_method :sort_column, :sort_direction
+  
   # GET /issues
   # GET /issues.json
   def index
@@ -148,7 +149,9 @@ class IssuesController < ApplicationController
           
         end
     end
-  
+
+    # POST /issues/{issue_id}/comment
+   
   # DELETE /issues/1
   # DELETE /issues/1.json
   def destroy
