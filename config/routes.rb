@@ -13,9 +13,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'static_pages#home'
   
-  # Routes for Google authentication
-  #get ‘auth/:provider/callback’, to: ‘sessions#googleAuth’
-  #get ‘auth/failure’, to: redirect(‘/’)
+
 
   #Routes for vote
   post '/issues/:id/vote' => "issues#vote", as: :vot
