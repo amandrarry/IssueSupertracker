@@ -3053,3 +3053,76 @@ Processing by StaticPagesController#home as HTML
 Completed 200 OK in 12ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 8483)
 
 
+Started GET "/" for 147.83.201.98 at 2019-11-28 12:17:39 +0000
+Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by StaticPagesController#home as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 1150)
+
+
+  
+SyntaxError (/home/ubuntu/environment/IssueSupertracker/app/models/user.rb:4: syntax error, unexpected end, expecting end-of-input):
+  
+app/models/user.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/user.rb:4: syntax error, unexpected end, expecting end-of-input
+app/models/user.rb:4: syntax error, unexpected end, expecting end-of-input
+app/controllers/application_controller.rb:10:in `set_current_user'
+Started GET "/" for 147.83.201.98 at 2019-11-28 12:18:06 +0000
+Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.8ms | Allocations: 138)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 121ms (Views: 106.0ms | ActiveRecord: 1.4ms | Allocations: 28137)
+
+
+Started GET "/issues" for 147.83.201.98 at 2019-11-28 12:18:09 +0000
+Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by IssuesController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering issues/index.html.erb within layouts/application
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:62
+  [1m[36mIssue Load (0.2ms)[0m  [1m[34mSELECT "issues".* FROM "issues"[0m
+  ↳ app/views/issues/index.html.erb:77
+  [1m[36mWatcher Exists? (0.6ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 10], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 11], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 12], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:85
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 13], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:85
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 14], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 15], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:85
+  [1m[36mWatcher Exists? (0.1ms)[0m  [1m[34mSELECT 1 AS one FROM "watchers" WHERE "watchers"."issue_id" = ? AND "watchers"."user_id" = ? LIMIT ?[0m  [["issue_id", 16], ["user_id", 1], ["LIMIT", 1]]
+  ↳ app/views/issues/index.html.erb:93
+  Rendered issues/index.html.erb within layouts/application (Duration: 68.5ms | Allocations: 27136)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 95ms (Views: 75.2ms | ActiveRecord: 3.4ms | Allocations: 40513)
+
+
+Started GET "/" for 147.83.201.98 at 2019-11-28 12:18:14 +0000
+Cannot render console from 147.83.201.98! Allowed networks: 127.0.0.0/127.255.255.255, ::1
+Processing by StaticPagesController#home as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:10:in `set_current_user'
+  Rendering static_pages/home.html.erb within layouts/application
+  Rendered static_pages/home.html.erb within layouts/application (Duration: 0.1ms | Allocations: 5)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 13ms (Views: 10.4ms | ActiveRecord: 0.1ms | Allocations: 8430)
+
+
