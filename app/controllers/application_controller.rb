@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
+
   def set_current_user
     User.create()
     if User.find(1)
